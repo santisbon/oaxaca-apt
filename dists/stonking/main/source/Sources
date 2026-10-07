@@ -1,0 +1,51 @@
+Package: oaxaca-archive-keyring
+Binary: oaxaca-archive-keyring, oaxaca-apt-source
+Version: 0.1.0
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13)
+Architecture: all
+Standards-Version: 4.7.2
+Format: 3.0 (native)
+Directory: pool/main/o/oaxaca-archive-keyring
+Files:
+ 06071da466ec6b474f8d0d41cbe42249 723 oaxaca-archive-keyring_0.1.0.dsc
+ c78e8e28873b377a7e22574154dad0bf 4980 oaxaca-archive-keyring_0.1.0.tar.xz
+Checksums-Sha1:
+ ce486db43315ad0a4ae2e33780a354c1cf7eee27 723 oaxaca-archive-keyring_0.1.0.dsc
+ 243491c28b398c6db2e9187b636f5d9be3113725 4980 oaxaca-archive-keyring_0.1.0.tar.xz
+Checksums-Sha256:
+ 99fea507aa7ad1fdc6cf51b6b861df977ce8c5fe405a7399276da4e0f2ec5f1b 723 oaxaca-archive-keyring_0.1.0.dsc
+ dc63b44f37ce72de68d62cf8dd56df5e5c1966eae8ba26729ea7180e181bb353 4980 oaxaca-archive-keyring_0.1.0.tar.xz
+Checksums-Sha512:
+ 7e649fa6cf00d8b3b912b634982628bb77a0ccf940903ebe9554edca9c6bc62ddb76c3a72664339dd38647e84f4416f92d648e7abc0b8bf9b551d6966cfcaac8 723 oaxaca-archive-keyring_0.1.0.dsc
+ 152d3616d1e3acd2997d764b48d20ba32fcc11f0cfb3973df34e43cd6baa369698b150b6f96162b40e69df52df7336cdb5bd067f6bc5042e17fcb3f3aeca978a 4980 oaxaca-archive-keyring_0.1.0.tar.xz
+Homepage: https://github.com/santisbon/oaxaca
+Package-List:
+ oaxaca-apt-source deb misc important arch=all
+ oaxaca-archive-keyring deb misc important arch=all
+
+Package: oaxaca-hybrid-backlight
+Binary: oaxaca-hybrid-backlight
+Version: 0.1.0
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13)
+Architecture: all
+Standards-Version: 4.7.2
+Format: 3.0 (native)
+Directory: pool/main/o/oaxaca-hybrid-backlight
+Files:
+ 989546338327badae36ec0fdfb8626f5 663 oaxaca-hybrid-backlight_0.1.0.dsc
+ 6884ec9f327a4cad6fed30eeaa38650f 4060 oaxaca-hybrid-backlight_0.1.0.tar.xz
+Checksums-Sha1:
+ f1484d002ed484d5a6b943d7b7941eaaae1c307a 663 oaxaca-hybrid-backlight_0.1.0.dsc
+ 1cb5288aa40f246921e4c4ee625a0e5054e0a456 4060 oaxaca-hybrid-backlight_0.1.0.tar.xz
+Checksums-Sha256:
+ 4a280cf0e330be6e4cbfc6b14526da07b8e1a4525f0c1447338facea9245264a 663 oaxaca-hybrid-backlight_0.1.0.dsc
+ 923cf03fb76eac86c8bc6268fa5249b06947677ea921450f74cf69af65c07bef 4060 oaxaca-hybrid-backlight_0.1.0.tar.xz
+Checksums-Sha512:
+ 04ebfe52589af80a9c67cc5880aa7e077339f26f413b77ea4890d3300d001a7b73141b70bd6f2864837ff0ee2cb4af389c62557c42469d38b2e150e164a7985e 663 oaxaca-hybrid-backlight_0.1.0.dsc
+ 4fc1cc1e6aacbb4ecde7b96469aeb24e25e47d4712a443f39a0f3c7e53586493cae8d4471933d6ded77b0388c3670664ecafc82607f76157bd4143d14601f640 4060 oaxaca-hybrid-backlight_0.1.0.tar.xz
+Homepage: https://github.com/santisbon/oaxaca
+Package-List:
+ oaxaca-hybrid-backlight deb admin optional arch=all
+

@@ -1,0 +1,66 @@
+Package: oaxaca-apt-source
+Priority: important
+Section: misc
+Installed-Size: 14
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Architecture: all
+Source: oaxaca-archive-keyring
+Version: 0.1.0
+Depends: oaxaca-archive-keyring
+Filename: pool/main/o/oaxaca-archive-keyring/oaxaca-apt-source_0.1.0_all.deb
+Size: 2248
+MD5sum: a4d0a4d4027a85a202e3f9993c5b4148
+SHA1: 41ca6b2940c853a1f62b642f3b40f0ab8128ecf3
+SHA256: 31ee998d45b88ef8f35ca3f378196aee218e7a9a3db27ba8e50b8b5f8ef04a5c
+SHA512: cd5e2cf075b686350157ed43ce38def5793217bfa03d41600bee0e8f980f1cb8831e1043cd54917e739193c7c555a65121a423c52dace0caccb9788733f7422b
+Description: Oaxaca apt repository sources entry
+ The deb822 sources entry that points apt at the Oaxaca repository and
+ binds it to the key from oaxaca-archive-keyring. Installed by the
+ Oaxaca image builder; it is what makes the repository's own updates,
+ including a changed repository location, reach installed systems.
+Homepage: https://github.com/santisbon/oaxaca
+Multi-Arch: foreign
+
+Package: oaxaca-archive-keyring
+Priority: important
+Section: misc
+Installed-Size: 15
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Architecture: all
+Version: 0.1.0
+Filename: pool/main/o/oaxaca-archive-keyring/oaxaca-archive-keyring_0.1.0_all.deb
+Size: 3220
+MD5sum: f76086f728d1db49368b8c4e658a0c99
+SHA1: 76165445abcd2fa4740d3ee92e807ddb4628d489
+SHA256: 88e96f70b401b52c39b49fbfee12d433d3b514d1f1afb40a622c60398cd175bf
+SHA512: 1b0c8037bf2f673d020a8cdf3c2e3fcc39d5a2d19ed2d98b432b4f405446a46bf4f25873f2e3cb73375b978ab7f2327127e48490441f7ea5a5a54ceb0b8ccf61
+Description: Oaxaca apt repository signing key
+ The public key that signs the Oaxaca apt repository, installed to
+ /etc/apt/keyrings/ so a sources entry can bind the repository to it.
+Homepage: https://github.com/santisbon/oaxaca
+Multi-Arch: foreign
+
+Package: oaxaca-hybrid-backlight
+Priority: optional
+Section: admin
+Installed-Size: 28
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Architecture: all
+Version: 0.1.0
+Depends: udev, systemd
+Filename: pool/main/o/oaxaca-hybrid-backlight/oaxaca-hybrid-backlight_0.1.0_all.deb
+Size: 5242
+MD5sum: 539eb05c3714406234b65c9a08568896
+SHA1: 685573c707003e3b2f9fe2d84124aa3df6c266a1
+SHA256: a5ec6bebf22c115bf03f6cf4fe8fb542d14b4ef8692ce6178ac7a91f64e36b92
+SHA512: a2c1d45e85991fda9418f8b911023f7d5744692b17b03e759e5c1f48d4c5fbc6a458e2a5371b95fb43e1223767d92c313f969650344fdfca83734642d1c9e450
+Description: hide the phantom NVIDIA backlight device on hybrid laptops
+ On laptops whose internal panel is driven by the integrated GPU, the NVIDIA
+ driver still registers a backlight device (nvidia_0) with its own scale.
+ Brightness tools that pick the first device or rescale between devices then
+ set the wrong brightness, and the driver re-registers the device after every
+ resume from suspend. This package shadows the phantom device's sysfs directory
+ with an empty tmpfs whenever a backlight device appears, and leaves it alone
+ when the NVIDIA GPU drives the panel itself.
+Homepage: https://github.com/santisbon/oaxaca
+
