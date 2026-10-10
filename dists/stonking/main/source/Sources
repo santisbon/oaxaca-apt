@@ -24,6 +24,31 @@ Package-List:
  oaxaca-apt-source deb misc important arch=all
  oaxaca-archive-keyring deb misc important arch=all
 
+Package: oaxaca-base
+Binary: oaxaca-base
+Version: 0.1.0
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13)
+Architecture: all
+Standards-Version: 4.7.2
+Format: 3.0 (native)
+Directory: pool/main/o/oaxaca-base
+Files:
+ 83a35dca6aac0897ea2665ec2425227f 598 oaxaca-base_0.1.0.dsc
+ dc1c6da75cd0f6bd8440083ad3c53f57 4016 oaxaca-base_0.1.0.tar.xz
+Checksums-Sha1:
+ e3a712753c4529212aaf500c3f04e49606819079 598 oaxaca-base_0.1.0.dsc
+ ff58c7f0433e44c4ee3604fe742e5694a5bcc4ac 4016 oaxaca-base_0.1.0.tar.xz
+Checksums-Sha256:
+ 902dff7be19aea1674797dd46f094e438f0bb56de15b7b822266a0f755128d80 598 oaxaca-base_0.1.0.dsc
+ 7f36329fbd13940cec80f460507a190fdf8ff7da4f2912ecd2c6b31646fb9cbf 4016 oaxaca-base_0.1.0.tar.xz
+Checksums-Sha512:
+ afb5b7be5dff06b17a16512291ac27bc79a0b761ced4f4a2963975fbcb58f2a231c9384ef9c2a4828ad3e42a866e5c1a6f4bc0e7f044a5e2c975dd6614dbb0f1 598 oaxaca-base_0.1.0.dsc
+ f63be8b6f474f18d41d2e1cdb10bf474e8e35adca8002df1589f0616bbf43ae1690e95f301d2b3945cc89ab04d0d6133f77e9a3d84662dc0291482bc32972516 4016 oaxaca-base_0.1.0.tar.xz
+Homepage: https://github.com/santisbon/oaxaca
+Package-List:
+ oaxaca-base deb metapackages optional arch=all
+
 Package: oaxaca-hybrid-backlight
 Binary: oaxaca-hybrid-backlight
 Version: 0.1.0
@@ -48,4 +73,84 @@ Checksums-Sha512:
 Homepage: https://github.com/santisbon/oaxaca
 Package-List:
  oaxaca-hybrid-backlight deb admin optional arch=all
+
+Package: oaxaca-nvidia
+Binary: oaxaca-nvidia
+Version: 0.1.0
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13)
+Architecture: all
+Standards-Version: 4.7.2
+Format: 3.0 (native)
+Directory: pool/main/o/oaxaca-nvidia
+Files:
+ a7330665645f9375cc30bfdded359486 603 oaxaca-nvidia_0.1.0.dsc
+ fb8a0a8ebdbadfbad27ff80610ba0b77 6008 oaxaca-nvidia_0.1.0.tar.xz
+Checksums-Sha1:
+ b95cddd0efc38d07273cf11642b4d026f68222a6 603 oaxaca-nvidia_0.1.0.dsc
+ 0e024c342348b233e28bf7f3f3d47246c87ca1dd 6008 oaxaca-nvidia_0.1.0.tar.xz
+Checksums-Sha256:
+ 42f14f4466b31c7189f482c189075e74a22cc29414f9fd1d70ce53397bcf0943 603 oaxaca-nvidia_0.1.0.dsc
+ 3c4f5b5ea62867342667f79df5986982ec9797a91bdda2694068a9e98129839f 6008 oaxaca-nvidia_0.1.0.tar.xz
+Checksums-Sha512:
+ 273951d2d0a5f4dd05b2aeb47fb9e81bd25f8168d3833ccea74a52bab31cd38de310f0c53c529160ef22f35d5f530d647c58356a97bc8de961bd7ac8f5a16a96 603 oaxaca-nvidia_0.1.0.dsc
+ 6f761453024dd85278359127e369738cc02c75ae6875954bcca474d3504f107ddad0549b908a15bf221ee7b22a0755a8f1a8c98627f2dccb8c0c6cfa856b8dae 6008 oaxaca-nvidia_0.1.0.tar.xz
+Homepage: https://github.com/santisbon/oaxaca
+Package-List:
+ oaxaca-nvidia deb admin optional arch=all
+
+Package: oaxaca-session
+Binary: oaxaca-session
+Version: 0.1.0
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13)
+Architecture: all
+Standards-Version: 4.7.2
+Format: 3.0 (native)
+Directory: pool/main/o/oaxaca-session
+Files:
+ 7fadec6cbe20d786ddccd73669b33745 616 oaxaca-session_0.1.0.dsc
+ 543439051fdd37ae639d84c78364c517 3636 oaxaca-session_0.1.0.tar.xz
+Checksums-Sha1:
+ fc9b3dd928fc2336e450b3a884131662da2f062b 616 oaxaca-session_0.1.0.dsc
+ 8102df6257c5a9fae266783c567d7b632e11f8bc 3636 oaxaca-session_0.1.0.tar.xz
+Checksums-Sha256:
+ 2781b407c835c2e45ec5ea59db6d6b93a54819dfe72c3d255715c5abf333a7e3 616 oaxaca-session_0.1.0.dsc
+ 46fcbe4ffbceb5c313b89332b01b2fd9a05dfb3c273b4ab324c10ba08d4d7066 3636 oaxaca-session_0.1.0.tar.xz
+Checksums-Sha512:
+ 88083bfcfe5c555b090aabd0a33ef772d5f30c6943af6ee6f6944a09811364fa57ec0ff0c5f06f73c65a5b1c849e710e5e6faa56cbc0dfd0db4588c06c665f9d 616 oaxaca-session_0.1.0.dsc
+ 0ac271d3978a51412af585dfc9773c71df042fb69f7f28f765e468e2c30e397ed4f0016f80fced4b3e9fabcf722496d1fd2c7f10472ca738943af49163b24f47 3636 oaxaca-session_0.1.0.tar.xz
+Homepage: https://github.com/santisbon/oaxaca
+Package-List:
+ oaxaca-session deb metapackages optional arch=all
+
+Package: quickshell
+Binary: quickshell
+Version: 0.3.2-0oaxaca1
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Original-Maintainer: Michael Lloyd <michael@micl.dev>
+Build-Depends: debhelper-compat (= 13), cmake, ninja-build, pkgconf, qt6-base-dev, qt6-declarative-dev, qt6-wayland-dev, qt6-shadertools-dev, qt6-base-private-dev, qt6-declarative-private-dev, qt6-wayland-private-dev, libcli11-dev, libcpptrace-dev, libwayland-dev, wayland-protocols (>= 1.41), libpipewire-0.3-dev, libpam0g-dev, libpolkit-agent-1-dev, libpolkit-gobject-1-dev, libglib2.0-dev, libdrm-dev, libgbm-dev, libjemalloc-dev, libegl-dev, libgles-dev, libvulkan-dev, libxcb1-dev, spirv-tools
+Architecture: linux-any
+Standards-Version: 4.7.4
+Format: 3.0 (quilt)
+Directory: pool/main/q/quickshell
+Files:
+ 7c0598b92ae0d842df8a4cb3a2781075 6224 quickshell_0.3.2-0oaxaca1.debian.tar.xz
+ 172b622320a8a967339c958b19d0b3a5 1403 quickshell_0.3.2-0oaxaca1.dsc
+ b109cf634856915ea8bed8ef6d8f549b 500985 quickshell_0.3.2.orig.tar.gz
+Checksums-Sha1:
+ 03ab72fb481687a9d170652d8f7063a495a0021b 6224 quickshell_0.3.2-0oaxaca1.debian.tar.xz
+ 405ee89771c9f3360a29e8e442d121e86a040a50 1403 quickshell_0.3.2-0oaxaca1.dsc
+ f59ceeee66a64690fe2a14f97036a02ecd3648ac 500985 quickshell_0.3.2.orig.tar.gz
+Checksums-Sha256:
+ b03c2ed19ac350957991e059a517715c43f037647ef892ebd504051a3912ae7f 6224 quickshell_0.3.2-0oaxaca1.debian.tar.xz
+ 645a4c4c69bfa759e7b97a49020a1517d9e1ed544e766a6dbc925bce69a820fd 1403 quickshell_0.3.2-0oaxaca1.dsc
+ 946a27e2a276917a03c1079e5c60971af84ece73088c3661dee455d92eb420f7 500985 quickshell_0.3.2.orig.tar.gz
+Checksums-Sha512:
+ aa5b840f01630ac7cb9e858a4547787eef56adb0cb27ceb18d08aaf30a81d29c5c9f7f785b639bd44522c5979be7db280e743f592c277e71637f7b8b3cac051d 6224 quickshell_0.3.2-0oaxaca1.debian.tar.xz
+ 8b41ab57ba04739c4af22de240cb1de9c46d7f1c648a3509f3fa2c5fd57109b15fca77bb9944e2525e81f5120d545cf674b239ab26e1c032abc4fb64fc10c9bb 1403 quickshell_0.3.2-0oaxaca1.dsc
+ b7af28e2d974076aeb62ac27b9b79e8f7e2ef73741ae9c61aab61cadcfb991d32c6593221e24ceb6905303f071059d6205327fdc34012fd9c463917eec89ccb2 500985 quickshell_0.3.2.orig.tar.gz
+Homepage: https://quickshell.org/
+Package-List:
+ quickshell deb x11 optional arch=linux-any
 

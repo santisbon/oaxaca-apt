@@ -40,6 +40,33 @@ Description: Oaxaca apt repository signing key
 Homepage: https://github.com/santisbon/oaxaca
 Multi-Arch: foreign
 
+Package: oaxaca-base
+Priority: optional
+Section: metapackages
+Installed-Size: 23
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Architecture: all
+Version: 0.1.0
+Depends: oaxaca-archive-keyring, oaxaca-apt-source, linux-generic, initramfs-tools, grub-efi-amd64-signed, shim-signed, secureboot-db, efibootmgr, cryptsetup-initramfs, systemd-sysv, udev, kmod, dbus-broker, dbus-user-session, libpam-systemd, polkitd, systemd-resolved, systemd-timesyncd, network-manager, wpasupplicant, wireless-regdb, netbase, iproute2, iputils-ping, ca-certificates, pipewire-audio, alsa-ucm-conf, alsa-topology-conf, firmware-sof-signed, apparmor, sudo, locales, tzdata, kbd, console-setup, less, e2fsprogs, dosfstools
+Filename: pool/main/o/oaxaca-base/oaxaca-base_0.1.0_all.deb
+Size: 3758
+MD5sum: 899d290187783afa3b14180ab6dbd45d
+SHA1: 2f798736d9dea2fca2c75aca67e1e8ea4cace2fe
+SHA256: ba9fe89815a77a6d35d93975f9af52e724d7140058fb2027223bf39b5738da12
+SHA512: 764a100deaadfa64067331239298be542ed6cf8d049e5fd1354ae1295f250e285fc41d2fbcf3a02a2b03623354ef5c0c369f286982c51484b385e37eb7d5e8c2
+Description: Oaxaca base system (metapackage)
+ Everything a Oaxaca system needs to boot, reach the network and play
+ sound, before any desktop: Ubuntu's signed kernel, shim and GRUB, systemd,
+ AppArmor, NetworkManager with wpa_supplicant, PipeWire with WirePlumber,
+ cryptsetup for an encrypted root, and the Oaxaca apt repository.
+ .
+ This package also sets the system's identity and apt behaviour: it diverts
+ /usr/lib/os-release so the system identifies as Oaxaca, turns apt's
+ Install-Recommends off, and hands every network interface to NetworkManager
+ through netplan. The snapd pin is not here: Debian policy keeps apt
+ preferences out of packages, so scripts/rootfs-create.sh writes that pin.
+Homepage: https://github.com/santisbon/oaxaca
+
 Package: oaxaca-hybrid-backlight
 Priority: optional
 Section: admin
@@ -63,4 +90,103 @@ Description: hide the phantom NVIDIA backlight device on hybrid laptops
  with an empty tmpfs whenever a backlight device appears, and leaves it alone
  when the NVIDIA GPU drives the panel itself.
 Homepage: https://github.com/santisbon/oaxaca
+
+Package: oaxaca-nvidia
+Priority: optional
+Section: admin
+Installed-Size: 24
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Architecture: all
+Version: 0.1.0
+Depends: python3, initramfs-tools, ubuntu-drivers-common, nvidia-prime
+Filename: pool/main/o/oaxaca-nvidia/oaxaca-nvidia_0.1.0_all.deb
+Size: 6634
+MD5sum: 5ca86f5586d431fd6b28c98a3a175814
+SHA1: 1d8549e1a4705719ee2437ba42a1abdb79edf899
+SHA256: 8ce9fc7939c6415cec783e49890cb212ce0ff759943d77f7bf995dbc9ecf8975
+SHA512: 4561bd209a53bc719367d0cfa0547ec14a59ae3de4e313d0db3efb87f34baae666041c5814644aae44f6bedce40ddca00a37b8992801e840724a0fdfafda2e55
+Description: NVIDIA install path for Oaxaca (detector and early KMS)
+ Oaxaca does not ship the NVIDIA driver in its images. This package
+ ships what makes installing it on the target machine a single command, and
+ what Ubuntu's driver packages leave out for a Wayland desktop:
+ .
+  * oaxaca-drivers-install: runs ubuntu-drivers install --no-oem with
+    the newest NVIDIA open branch that has Canonical's prebuilt signed
+    modules (linux-modules-nvidia-<branch>-open-*) for the installed
+    kernel, so Secure Boot needs no MOK enrollment. ubuntu-drivers' own
+    choice would be the long-term branch (LTSB) over the newer one (NFB).
+    With no NVIDIA GPU, or one the open modules do not support,
+    ubuntu-drivers' own choice applies. The installed packages are
+    recorded in /var/log/oaxaca/drivers.list.
+  * an initramfs-tools hook that copies the nvidia, nvidia_modeset,
+    nvidia_uvm and nvidia_drm modules into the initramfs once they are
+    installed, so the kernel sets the display mode early (KMS) with the
+    modeset=1 option that nvidia-kernel-common-* ships. Ubuntu's own hook
+    only looks in the DKMS module directory and so skips the prebuilt
+    modules. Without the driver the hook copies nothing.
+  * nvidia-prime as a dependency: after installing an NVIDIA driver,
+    ubuntu-drivers runs "prime-select on-demand" when that command exists,
+    which puts a hybrid laptop's NVIDIA GPU into runtime power management
+    (gpu-manager then writes /lib/modprobe.d/nvidia-runtimepm.conf). The
+    driver packages only recommend nvidia-prime, and Oaxaca installs
+    no Recommends, so the dependency is explicit here.
+Homepage: https://github.com/santisbon/oaxaca
+
+Package: oaxaca-session
+Priority: optional
+Section: metapackages
+Installed-Size: 16
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Architecture: all
+Version: 0.1.0
+Depends: oaxaca-base, oaxaca-nvidia, libgl1-mesa-dri, libegl-mesa0, libgl1, mesa-vulkan-drivers, mesa-va-drivers, hyprland, xwayland, uwsm, sddm, qt6-wayland, xdg-desktop-portal, xdg-desktop-portal-hyprland, xdg-desktop-portal-gtk, gnome-keyring, libpam-gnome-keyring, libsecret-1-0, quickshell (>= 0.3.2)
+Filename: pool/main/o/oaxaca-session/oaxaca-session_0.1.0_all.deb
+Size: 3396
+MD5sum: 438742422e25a429ea6c8bf077536b0d
+SHA1: 69117cbb2780d89fea083abcf4f104329800be32
+SHA256: c38fe5356385d33d48b18fdf2829341b575b11d0fb1081f12ccc3d9505398c34
+SHA512: 0e68e36626b077aa17af859d40a998ecb57c1bb3111144cc83841b2efb6405a3793cf951ff9a85ededd7407dae3a38fdc735a9ed47d19bbf887f56ea9306b261
+Description: Oaxaca graphics and session layer (metapackage)
+ Everything between the base system and the desktop: Mesa (OpenGL, EGL,
+ Vulkan and VA-API drivers for Intel, AMD and virtual GPUs), the Hyprland
+ compositor with Xwayland for X11 applications, uwsm to run the compositor
+ as a systemd user session, the SDDM display manager with Qt's Wayland
+ platform plugin for its greeter, and the desktop portals (the Hyprland
+ backend for screen sharing and screenshots, the GTK backend for file
+ dialogs), Quickshell 0.3.2 or newer (the Qt/QML toolkit the desktop
+ shell runs on; the archive's 0.3.0 predates fixes to the session lock),
+ and GNOME Keyring as the secret store (the Secret Service
+ that browsers and other desktop applications keep credentials in),
+ with its PAM module so that the login password unlocks the keyring and
+ a password change follows. The NVIDIA install path comes through
+ oaxaca-nvidia.
+ .
+ This package also configures SDDM: its greeter runs on Wayland under a
+ Hyprland instance with a minimal configuration, so no X server and no
+ second compositor are needed for the login screen.
+Homepage: https://github.com/santisbon/oaxaca
+
+Package: quickshell
+Priority: optional
+Section: x11
+Installed-Size: 6516
+Maintainer: santisbon <santisbon@users.noreply.github.com>
+Original-Maintainer: Michael Lloyd <michael@micl.dev>
+Architecture: amd64
+Version: 0.3.2-0oaxaca1
+Depends: libc6 (>= 2.38), libcpptrace1 (>= 1.0.4), libdrm2 (>= 2.4.109), libegl1, libgbm1 (>= 21.3.0~rc1), libgcc-s1 (>= 3.3.1), libglib2.0-0t64 (>= 2.80.0), libjemalloc2 (>= 5.3.0), libopengl0, libpam0g (>= 1.4.0), libpipewire-0.3-0t64 (>= 0.3.1), libpolkit-agent-1-0 (>= 0.99), libpolkit-gobject-1-0 (>= 0.94), libqt6core6t64 (>= 6.11.2), libqt6dbus6 (>= 6.8.2), libqt6gui6 (>= 6.4.0), libqt6network6 (>= 6.1.2), libqt6qml6 (>= 6.10.2), libqt6quick6 (>= 6.6.0), libqt6waylandclient6 (>= 6.10.2), libqt6widgets6 (>= 6.1.2), libstdc++6 (>= 14), libwayland-client0 (>= 1.20.0), libxcb1, qt6-base-private-abi (= 6.11.2), qt6-declarative-private-abi (= 6.11.2), hicolor-icon-theme, qt6-svg-plugins, qml6-module-qtquick, qml6-module-qtquick-controls, qml6-module-qtquick-layouts
+Filename: pool/main/q/quickshell/quickshell_0.3.2-0oaxaca1_amd64.deb
+Size: 1698176
+MD5sum: cfff05e38cfd850d258117ad52cb0186
+SHA1: 025022499c97f5e994028d3b09fe65116adba05b
+SHA256: 0d1e66cd6d00c0495e51b0a4ffa6cef86d3516af3cfd1c6237e36cbd4dd21ec3
+SHA512: ae3bdf26b90408452caa61c3f874664ea5acf9deb4ca9b7dac8642b6e4f2534d41edd8378c2e23c64040b0c42c10ab859c15ca9299a15ecdd4735ea82cc187b3
+Description: flexible QtQuick-based desktop shell toolkit
+ Quickshell is a toolkit for building status bars, widgets,
+ lockscreens, and other desktop components using Qt6 and QtQuick.
+ It supports both Wayland and X11, with integrations for PipeWire,
+ MPRIS, system tray, PAM, Bluetooth, and compositor-specific
+ features for Hyprland and Sway/i3. Configuration is done
+ declaratively in QML with live hot-reloading.
+Homepage: https://quickshell.org/
 
